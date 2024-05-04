@@ -112,3 +112,4 @@ buckets.length = 16;
 let test = HashMap();
 console.log(test.hash("black"));
 console.log(test.set("black", 98));
+console.log(test.get("black"));
