@@ -56,8 +56,8 @@ function HashMap() {
     let index = hash(key);
     if (index < 0 || index >= buckets.length) {
       throw new Error("Trying to access index out of bound");
-    } else if (buckets[index].key == key) {
-      buckets.splice(index, index);
+    } else if (buckets[index] && buckets[index].key == key) {
+      buckets.splice(index, 1);
       return true;
     }
     return false;
@@ -75,6 +75,7 @@ function HashMap() {
 
   function clear() {
     buckets.splice(0, buckets.length);
+    return buckets;
   }
 
   function keys() {
@@ -112,6 +113,16 @@ buckets = [];
 buckets.length = 16;
 let test = HashMap();
 console.log(test.hash("black"));
+console.log(test.set("blacky", 65));
+console.log(buckets);
 console.log(test.set("black", 98));
 console.log(test.get("black"));
 console.log(test.has("black"));
+console.log(test.remove("blac"));
+console.log(buckets);
+console.log(test.length());
+// console.log(test.clear());
+console.log(buckets);
+console.log(test.keys());
+console.log(test.values());
+console.log(test.entries());
