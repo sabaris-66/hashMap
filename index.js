@@ -36,7 +36,7 @@ function HashMap() {
     let index = hash(key);
     if (index < 0 || index >= buckets.length) {
       throw new Error("Trying to access index out of bound");
-    } else if (buckets[index].key == key) {
+    } else if (buckets[index] && buckets[index].key == key) {
       return buckets[index].value;
     }
     return null;
@@ -112,4 +112,5 @@ buckets.length = 16;
 let test = HashMap();
 console.log(test.hash("black"));
 console.log(test.set("black", 98));
-console.log(test.get("black"));
+console.log(test.get("blac"));
+console.log(test.has("blac"));
